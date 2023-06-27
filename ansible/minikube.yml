@@ -1,0 +1,26 @@
+- name: Minikube installation
+  hosts: localhost
+  tasks:
+    - name: required dependencies
+      become: yes
+      apt:
+        name:
+          - apt-transport-https
+          - virtualbox
+          - curl
+          - jq
+          - conntrack
+          - docker.io
+        state: present
+
+    - name: install Minikube
+      become: yes
+      shell: |
+        curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+        sudo install minikube-linux-amd64 /usr/local/bin/minikube
+        rm minikube-linux-amd64
+
+    - name: Start cluster
+      become: yes
+      command: minikube start
+
