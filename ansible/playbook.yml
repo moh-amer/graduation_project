@@ -1,0 +1,46 @@
+- name: InstallMinikube 
+  hosts: localhost
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Update package repositories
+      package:
+        name: '*'
+        state: latest
+        update_cache: yes      
+
+    - name: Install dependencies
+      package:
+        name:
+          - docker.io
+          - curl
+        state: present
+
+    - name: Add user to 'docker' group
+      become: true
+      user:
+        name: ubuntu
+        groups: docker
+        append: true
+
+    - name: Install kubectl and Minikube
+      shell: |
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
+        && chmod +x kubectl && mv kubectl /usr/local/bin/ \
+        && curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+        && install minikube-linux-amd64 /usr/local/bin/minikube
+
+    - name: Start Docker and Minikube
+      become_user: ubuntu
+      shell: |
+        sudo systemctl start docker \
+        && sudo systemctl enable docker \
+        && minikube start --driver=docker
+
+  handlers:
+    - name: Wait for Docker
+      wait_for:
+        host: localhost
+        port: 2375
+        state: started
+        timeout: 60
