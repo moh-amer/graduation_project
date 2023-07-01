@@ -10,7 +10,7 @@ resource "kubernetes_persistent_volume" "jenkins_pv" {
     access_modes = ["ReadWriteMany"]
     persistent_volume_source {
       vsphere_volume {
-        volume_path = "/home/mansour/my-data"
+        volume_path = "/home/fedora/my-data"
       }
     }
   }
@@ -19,7 +19,7 @@ resource "kubernetes_persistent_volume" "jenkins_pv" {
 
 resource "kubernetes_persistent_volume_claim" "jenkins_pvc" {
   metadata {
-    name = "terraform-example-pvc"
+    name      = "terraform-example-pvc"
     namespace = kubernetes_namespace.tools.metadata[0].name
 
 
@@ -49,7 +49,7 @@ resource "kubernetes_persistent_volume" "nexus_pv" {
     access_modes = ["ReadWriteMany"]
     persistent_volume_source {
       vsphere_volume {
-        volume_path = "/home/mansour/nexus-data"
+        volume_path = "/home/fedora/nexus-data"
       }
     }
   }
@@ -58,7 +58,7 @@ resource "kubernetes_persistent_volume" "nexus_pv" {
 
 resource "kubernetes_persistent_volume_claim" "nexus_pvc" {
   metadata {
-    name = "nexus-pvc"
+    name      = "nexus-pvc"
     namespace = kubernetes_namespace.tools.metadata[0].name
 
 
