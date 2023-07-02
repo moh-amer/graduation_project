@@ -28,9 +28,14 @@ resource "kubernetes_deployment" "jenkins" {
         container {
           name  = "jenkins"
           image = "jenkins/jenkins:lts"
-	  port {
-                   container_port = 8080
-               }
+          port {
+            name           = "httpport"
+            container_port = 8080
+          }
+          port {
+            name           = "jnlpport"
+            container_port = 50000
+          }
 
           volume_mount {
             name       = "jenkins-data"
@@ -38,6 +43,11 @@ resource "kubernetes_deployment" "jenkins" {
           }
         }
 
+        service_account_name = "jenkins-admin"
+        security_context {
+          run_as_user = 1000
+          fs_group    = 1000
+        }
         volume {
           name = "jenkins-data"
 

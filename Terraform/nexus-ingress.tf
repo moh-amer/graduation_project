@@ -46,5 +46,26 @@ resource "kubernetes_ingress_v1" "nexus_ingress" {
       }
     }
 
+    rule {
+      host = "jenkins.local.com"
+      http {
+        path {
+          path = "/"
+
+          backend {
+            service {
+              name = kubernetes_service.jenkins_service.metadata.0.name
+              port {
+                number = 8080
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+
+
   }
 }
