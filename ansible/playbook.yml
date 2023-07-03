@@ -59,3 +59,11 @@
         path: /etc/hosts
         line: "{{ minikube_ip.stdout }} docker.nexus.local.com"
         state: present
+
+    - name: Append entries to Minikube config
+      become_user: ubuntu
+      lineinfile:
+        path: ~/.minikube/machines/minikube/config.json
+        regexp: '"InsecureRegistry": \['
+        line: '        "InsecureRegistry": [ "nexus-service.tools.svc.cluster.local", "docker.nexus.local.com",'
+        backrefs: yes
