@@ -37,10 +37,19 @@
         && sudo systemctl enable docker \
         && minikube start --driver=docker
 
-  handlers:
-    - name: Wait for Docker
-      wait_for:
-        host: localhost
-        port: 2375
-        state: started
-        timeout: 60
+    - name: Retrieve Minikube IP
+      become_user: ubuntu
+      command: minikube ip
+      register: minikube_ip
+
+    - name: Update /etc/hosts with Minikube IP
+      lineinfile:
+        path: /etc/hosts
+        line: "{{ minikube_ip.stdout }} nexus.local.com"
+        state: present
+
+    - name: Update /etc/hosts with Minikube IP (docker.nexus.local.com)
+      lineinfile:
+        path: /etc/hosts
+        line: "{{ minikube_ip.stdout }} docker.nexus.local.com"
+        state: present
