@@ -57,6 +57,21 @@
 
 ---
 
+### Config Kaniko: 
+![Step-5](Screenshot/8.png)
+
+---
+
+### Config Kube-agent: 
+![Step-5](Screenshot/7.png)
+
+---
+
+### Config App Deployer: 
+![Step-5](Screenshot/6.png)
+
+---
+
 ## Deployment Repo for CD Stage [here](https://github.com/moh-amer/graduation_config/)
 
 ---
