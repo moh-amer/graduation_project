@@ -34,10 +34,11 @@ resource "kubernetes_deployment" "mysql_deployment" {
           }
 
           env_from {
-            config_map_ref {
-              name = kubernetes_config_map_v1.mysql_config_map.metadata[0].name
+            secret_ref {
+              name = kubernetes_secret_v1.mysql_secret.metadata[0].name
             }
           }
+
 
         }
 
