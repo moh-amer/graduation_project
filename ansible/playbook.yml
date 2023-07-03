@@ -48,6 +48,12 @@
         line: "{{ minikube_ip.stdout }} nexus.local.com"
         state: present
 
+    - name: Update /etc/hosts with app
+      lineinfile:
+        path: /etc/hosts
+        line: "{{ minikube_ip.stdout }} app.local.com"
+        state: present    
+
     - name: Update /etc/hosts with Minikube IP (docker.nexus.local.com)
       lineinfile:
         path: /etc/hosts
