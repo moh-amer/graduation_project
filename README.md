@@ -1,4 +1,4 @@
-# Graduation_Project_ITI
+# ITI Graduation Project
 ## Project Requirements:
 
 #### 1- Install local K8s instance using Minikub (with Ansible).
@@ -54,6 +54,10 @@
 
 ### Create Nexus Repo: 
 ![Step-5](Screenshot/5.png)
+
+---
+
+## Deployment Repo for CD Stage [here](https://github.com/moh-amer/graduation_config/)
 
 ---
 
