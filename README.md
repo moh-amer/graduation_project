@@ -53,24 +53,32 @@
 ---
 
 ### Create Nexus Repo: 
-![Step-5](Screenshot/5.png)
+![Step-5](Screenshot/9.png)
+
+---
+
+### Nexus app images: 
+![Step-6](Screenshot/11.png)
 
 ---
 
 ### Config Kaniko: 
-![Step-5](Screenshot/8.png)
+![Step-7](Screenshot/8.png)
 
 ---
 
 ### Config Kube-agent: 
-![Step-5](Screenshot/7.png)
+![Step-8](Screenshot/7.png)
 
 ---
 
 ### Config App Deployer: 
-![Step-5](Screenshot/6.png)
+![Step-9](Screenshot/6.png)
 
 ---
+
+### NodeJs App: 
+![Step-10](Screenshot/10.png)
 
 ## Deployment Repo for CD Stage [here](https://github.com/moh-amer/graduation_config/)
 
