@@ -47,38 +47,43 @@
 
 ---
 
+### Jenkins Pipeline : 
+![Step-4](Screenshot/12.png)
+
+---
+
 ### Configure Nexus: 
-![Step-4](Screenshot/4.png)
+![Step-5](Screenshot/4.png)
 
 ---
 
 ### Create Nexus Repo: 
-![Step-5](Screenshot/9.png)
+![Step-6](Screenshot/9.png)
 
 ---
 
 ### Nexus app images: 
-![Step-6](Screenshot/11.png)
+![Step-7](Screenshot/11.png)
 
 ---
 
 ### Config Kaniko: 
-![Step-7](Screenshot/8.png)
+![Step-8](Screenshot/8.png)
 
 ---
 
 ### Config Kube-agent: 
-![Step-8](Screenshot/7.png)
+![Step-9](Screenshot/7.png)
 
 ---
 
 ### Config App Deployer: 
-![Step-9](Screenshot/6.png)
+![Step-10](Screenshot/6.png)
 
 ---
 
 ### NodeJs App: 
-![Step-10](Screenshot/10.png)
+![Step-11](Screenshot/10.png)
 
 ## Deployment Repo for CD Stage [here](https://github.com/moh-amer/graduation_config/)
 
